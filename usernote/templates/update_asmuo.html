@@ -1,0 +1,28 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.vardas.label(class="form-control-label") }}
+        {{ form.vardas(class="form-control", value=asmuo.vardas) }}
+    </div>
+    <div class="form-group">
+        {{ form.pavarde.label(class="form-control-label") }}
+        {{ form.pavarde(class="form-control", value=asmuo.pavarde) }}
+    </div>
+    <div class="form-group">
+        {{ form.ak.label(class="form-control-label") }}
+        {{ form.ak(class="form-control", value=asmuo.ak) }}
+    </div>
+    <div class="form-group">
+        {{ form.tel.label(class="form-control-label") }}
+        {{ form.tel(class="form-control", value=asmuo.tel) }}
+    </div>
+    {{ form.submit }}
+</form>
+<hr>
+{% endblock %}

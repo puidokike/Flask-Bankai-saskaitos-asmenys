@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.id.label(class="form-control-label") }}
+        {{ form.id(class="form-control") }}
+    </div>
+    {{ form.submit }}
+</form>
+<hr>
+{% endblock %}

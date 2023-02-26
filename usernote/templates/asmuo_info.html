@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h4>{{ asmuo.vardas }} {{ asmuo.pavarde }}:</h4>
+<br>
+{% for sas in saskaita %}
+<p>
+Balansas: {{ sas.balansas }} EUR.
+<br>
+Bankas: {{ sas.bankas.pavadinimas }}
+<br>
+Saskaitos numeris: {{ sas.numeris }}
+<br><br>
+{% endfor %}
+</p>
+
+{% endblock %}

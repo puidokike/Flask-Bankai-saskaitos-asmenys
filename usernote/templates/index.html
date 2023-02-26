@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 style="color:pink;">ATASKAITA</h1>
+
+<h3>Bankai:</h3>
+<table>
+  <tr>
+    <td style="font-weight: bold;">Bankas</td>
+    <td style="font-weight: bold;">Adresas</td>
+    <td style="font-weight: bold;">Banko kodas</td>
+    <td style="font-weight: bold;">SWIFT</td>
+    <td style="font-weight: bold;">UPDATE</td>
+  </tr>
+    {% for bankas in bankai %}
+    <tr>
+        <td> {{ bankas.pavadinimas }} </td>
+        <td> {{ bankas.adresas }} </td>
+        <td> {{ bankas.banko_kodas }} </td>
+        <td> {{ bankas.swift }} </td>
+        <td><span><a href="/update_bankas/{{ bankas.id }}">Update</a></span></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br><br><br>
+<h3>Asmenys:</h3>
+<table>
+    <tr>
+        <td style="font-weight: bold;">Vardas</td>
+        <td style="font-weight: bold;">Pavarde</td>
+        <td style="font-weight: bold;">Asmens kodas</td>
+        <td style="font-weight: bold;">Tel.nr.</td>
+        <td style="font-weight: bold;">UPDATE</td>
+    </tr>
+        {% for asmuo in asmenys %}
+        <tr>
+            <td> {{ asmuo.vardas }} </td>
+            <td> {{ asmuo.pavarde }} </td>
+            <td> {{ asmuo.ak }} </td>
+            <td> {{ asmuo.tel }} </td>
+            <td><span><a href="/update_asmuo/{{ asmuo.id }}">Update</a></span></td>
+        </tr>
+        {% endfor %}
+</table>
+<br><br><br>
+<h3>Saskaitos:</h3>
+<table>
+    <tr>
+        <td style="font-weight: bold;">Saskaitos numeris</td>
+        <td style="font-weight: bold;">Saskaitos balansas</td>
+        <td style="font-weight: bold;">Saskaitos savininkas</td>
+        <td style="font-weight: bold;">Banko pavadinimas</td>
+        <td style="font-weight: bold;">UPDATE</td>
+    </tr>
+    {% for saskaita in saskaitos %}
+    <tr>
+        <td>{{ saskaita.numeris }}</td>
+        <td>{{ saskaita.balansas }}</td>
+        <td>{{ saskaita.asmuo }}</td>
+        <td>{{ saskaita.bankas }}</td>
+        <td><span><a href="/update_saskaita/{{ saskaita.id }}">Update</a></span></td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

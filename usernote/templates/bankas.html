@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.pavadinimas.label(class="form-control-label") }}
+        {{ form.pavadinimas(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.adresas.label(class="form-control-label") }}
+        {{ form.adresas(class="form-control") }}
+    </div>
+        <div class="form-group">
+        {{ form.banko_kodas.label(class="form-control-label") }}
+        {{ form.banko_kodas(class="form-control") }}
+    </div>
+        <div class="form-group">
+        {{ form.swift.label(class="form-control-label") }}
+        {{ form.swift(class="form-control") }}
+    </div>
+    {{ form.submit }}
+</form>
+<hr>
+<h3>Bankai:</h3>
+{% for bankas in bankai %}
+    <p>{{ bankas.pavadinimas }}  <span> {{ bankas.adresas }} {{ bankas.banko_kodas }} {{ bankas.swift }} </span><span><a href="/update_bankas/{{ bankas.id }}">Update</a></span></p>
+{% endfor %}
+{% endblock %}
